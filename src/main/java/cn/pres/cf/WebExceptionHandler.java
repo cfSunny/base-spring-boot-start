@@ -1,11 +1,14 @@
 package cn.pres.cf;
 
 import cn.pres.cf.entity.ExceptionResultEntity;
+import cn.pres.cf.enums.ResultCodeEnum;
 import cn.pres.cf.exception.BusinessException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author Dora
@@ -17,20 +20,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class WebExceptionHandler {
 
     @ExceptionHandler({Exception.class})
-    public ExceptionResultEntity handler(Exception e){
+    public ExceptionResultEntity handler(HttpServletRequest request,Exception e){
 
         if(e instanceof BusinessException){
             // 返回异常信息
             ExceptionResultEntity resultVO=new ExceptionResultEntity();
             resultVO.setCode(((BusinessException) e).getCode());
-
+            resultVO.setUrl(request.getRequestURI());
             resultVO.setMessage(e.getMessage());
-            // 把这边改了
             return resultVO;
         }else{
             e.printStackTrace();
         }
-        return ExceptionResultEntity.error(5000,"未知异常","ces");
+        return ExceptionResultEntity.error(ResultCodeEnum.UNDEFINE.getCode(),ResultCodeEnum.UNDEFINE.getMessage(),request.getRequestURI());
     }
 
 }
