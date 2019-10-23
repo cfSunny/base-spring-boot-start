@@ -1,4 +1,4 @@
-# base-spring-boot-start
+# base-spring-boot-starter
 架构基础入门
 构造架构的基础设施，如统一返回格式/统一异常处理，统一全部json工具等等等。
 目前版本拥有:
