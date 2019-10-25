@@ -1,1 +1,2 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=cn.pres.cf.ResultAspect,cn.pres.cf.WebExceptionHandler
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=cn.pres.cf.ResultAspect\
+  ,cn.pres.cf.WebExceptionHandler,cn.pres.cf.InterceptorConfiguration,cn.pres.cf.SpringUtils
