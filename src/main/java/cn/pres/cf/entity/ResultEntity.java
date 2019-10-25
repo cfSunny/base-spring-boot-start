@@ -24,12 +24,6 @@ public class ResultEntity<T> implements Serializable {
     private T data;
 
 
-    private LocalDate localDate;
-
-    private LocalDateTime  time;
-
-    private Date date;
-
     public static <T> ResultEntity<T> ok(T data){
 
         ResultEntity resultVO = new ResultEntity();

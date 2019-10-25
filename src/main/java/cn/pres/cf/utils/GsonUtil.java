@@ -29,10 +29,6 @@ public class GsonUtil {
             .setDateFormat("yyyy-MM-dd hh:mm:ss")
             .create();
 
-    static {
-
-    }
-
     /**
      * 对象转json
      *
